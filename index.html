@@ -1,0 +1,115 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Shoptrade</title>
+       <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    /> -->
+    </head>
+    <body>
+        <nav id="navbar" class="st-nav">
+            <div style="padding-left:2rem;"><img src="./images/ShopTrade_fav.png" class="nav" alt="ShopTrade"> </div>
+            <div>
+                <span id="na1">Shop <img src="./images/arrow.png" class="arrow" alt=""></span>
+                <span id="na2">About Us</span>
+                <span id="na3">Our Stores</span>
+                <span id="na4">Contact Us</span>
+            </div>
+            <div>
+                <span id="na5">Search <img class="search" src="./images/search.png"> </span>
+                <span><img class="user" src="./images/person.png"></span>
+                <span><img class="cart" src="./images/cart.png"></span>
+            </div>    
+        </nav>
+        <div id="st1">
+            <span class="stc1">Invite friends to Big Fashion Festival & get up to $150 MynCash for every person who visits</span>
+            <button id="btn1">Invite now</button>
+        </div>
+        <div id="st-body">
+            <section class="menu">
+                <div class="division"><span style="color:#878787">Home / Clothing / Mens Clothing </span>/ All Mens Clothing</div>
+                <div class="title">
+                    <h4>All Products <span id="productCount" style="color: #878787;">(28 Products)</span></h4>
+                </div>
+
+                <div class="btn-container">
+                    <span class="btn-title">FILTERS : </span>
+                    <button class="filter-btn" type="button" data-id="all">All Products</button>
+                    <button class="filter-btn" type="button" data-id="T-shirt">Tee Shirt</button>
+                    <button class="filter-btn" type="button" data-id="Denim">Denim</button>
+                    <button class="filter-btn" type="button" data-id="jacket">Jacket</button>
+                    <button class="filter-btn" type="button" data-id="shirt">Shirt</button>
+                    <button class="filter-btn" type="button" data-id="Sweatshirt">Sweatshirts</button>
+                    <div style="padding-left: 415px;">
+                        <button class="btn" type="button">Sort By: Price Low to High<img src="./images/arrow.png" class="arrow1" alt=""></span></button>
+                    </div>
+                </div>
+
+                <div class="section-center">
+                    <!--single item -->
+                    <article class="menu-item">
+                        <table>                            
+                            </tbody>
+                                <tr><td><div>
+                                     <img src="https://cdn.shopify.com/s/files/1/0455/2176/4502/files/Sweater_0.jpg?v=1603266982" alt="" class="photo" />
+                                </div></td></tr>
+                                <tr><td>
+                                    <div class="item-info">
+                                    <h4>GAP</h4>
+                                     <p class="item-text">
+                                        Men's Pullover Sweatshirt
+                                    </p>
+                                 <h4 class="price">$74 <span class="actualPrice"><s>$200</s> <span class="discount">(50% OFF)</span></span></h4>
+                                 </div></td></tr>
+                            </tbody>
+                        </table>
+                    </article>
+                    <!--end of single item -->
+                </div>
+            </section>
+        </div>
+        
+        <!--Method 1 - with local object json data-->
+        <script src="app.js"> </script>
+        <!--End of method 1-->
+
+        <!-- Method 2 - with fetch API -->
+        <!--
+        <script>
+           fetch('https://raw.githubusercontent.com/Mani9-git/shopTrade_assignment/main/products.json')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            function appendData(data) {
+                var sectionCenter = document.querySelector('.section-center');
+                //var mainContainer = document.getElementById("myData");
+                for (var i = 0; i < data.length; i++) { 
+                    var div = document.createElement("div");
+                    div.innerHTML = `<article class="menu-item">
+                     <img src=${data[i].image_src} alt=${data[i].name} class="photo" />
+                        <div class="item-info">
+                        <h4>${data[i].vendor}</h4>
+                        <p class="item-text">
+                         ${data[i].name}
+                        </p>
+                        <h4 class="price">$${data[i].price}</h4>
+                        </div>
+                     </article>`;
+                    sectionCenter.appendChild(div);
+                }
+            } 
+        </script> 
+        -->
+    </body>
+</html>
