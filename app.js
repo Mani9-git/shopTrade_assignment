@@ -1067,6 +1067,7 @@ const products = [
 //////////////////////// end of json data to products object
 const sectionCenter = document.querySelector('.section-center');
 const filterBtns = document.querySelectorAll('.filter-btn');
+var itemsAdded = [];
 
 //load products
 window.addEventListener("DOMContentLoaded", function(){
@@ -1094,18 +1095,19 @@ filterBtns.forEach(function(btn){
 
 function displayProductDetails(productDetails){ 
     let displayProucts = productDetails.map(function(item){
-        //console.log(item);
+        //console.log(item); 
     return `<article class="menu-item">
     <table>                            
         </tbody>
-            <tr><td><div>
+            <tr><td><div title=${item.name.slice(0,35)}>
                  <img src=${item.image_src} alt=${item.name} class="photo" />
             </div></td></tr>
             <tr><td>
-                <div class="item-info">
-                <h4>${item.vendor}</h4>
+                <div class="item-info" title=${item.name.slice(0,35)}>
+                <h4 style="padding-top:10px;">${item.vendor}</h4>
+                <button id=${item.id} type="button" class="itemToCart" onClick="addItem(this.id)">Add to cart</button>
                  <p id="pname_${item.id}" class="item-text">
-                 ${item.name}
+                 ${item.name.slice(0,35)}
                 </p>
              <h4 class="price">$${item.price} <span class="actualPrice"><s>$${item.compare_at_price}</s> <span class="discount">(50% OFF)</span></span></h4>
              </div></td></tr>
@@ -1117,5 +1119,15 @@ function displayProductDetails(productDetails){
     });
     displayProucts = displayProucts.join("");
     sectionCenter.innerHTML = displayProucts;
+
+    //console.log(productDetails.length);
+    document.getElementById("productCount").innerHTML = productDetails.length;
     //console.log(displayProucts);
+}
+
+function addItem(id){
+  itemsAdded.push(id);
+  //console.log(itemsAdded);
+  document.getElementById("icount").innerHTML = itemsAdded.length;
+  console.log("Added item with id : " + id + ", so total items added : " + itemsAdded.length);
 }
