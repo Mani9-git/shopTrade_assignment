@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     /> -->
+    
     </head>
     <body>
         <nav id="navbar" class="st-nav">
@@ -23,7 +24,12 @@
             <div>
                 <span id="na5">Search <img class="search" src="./images/search.png"> </span>
                 <span><img class="user" src="./images/person.png"></span>
-                <span><img class="cart" src="./images/cart.png"></span>
+                <span class="cart">
+                    <span id="icount" class="itemCnt">0</span>
+                    <img src="./images/cart.png"><span>
+                    <img src="./images/Vector.png" style="padding-left:14px;">
+                    <img src="./images/Vector.png" style="padding-left:4px;margin-top:-6px;">
+                </span></span>
             </div>    
         </nav>
         <div id="st1">
@@ -34,7 +40,7 @@
             <section class="menu">
                 <div class="division"><span style="color:#878787">Home / Clothing / Mens Clothing </span>/ All Mens Clothing</div>
                 <div class="title">
-                    <h4>All Products <span id="productCount" style="color: #878787;">(28 Products)</span></h4>
+                    <h4>All Products <span class="productCount" style="color: #878787;">(<span id="productCount">28</span> Products)</span></h4>
                 </div>
 
                 <div class="btn-container">
