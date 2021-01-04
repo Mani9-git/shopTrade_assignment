@@ -193,7 +193,7 @@
   padding: 2px;
   margin-left: 138px;
   margin-bottom: -22px;
-  margin-top: -20px;
+  margin-top: -15px;
   background: transparent;
   border-radius: 1.5rem;
   border: 1px solid black;
@@ -315,6 +315,7 @@ p {
 .btn-title {
   font-weight: bold;
   margin-top: 0.5rem;
+  font-family: var(--ff-primary);
 }
 
 /* section */
@@ -369,6 +370,7 @@ Menu
   display: grid;
   gap: 1rem 2rem;
   max-width: 25rem;
+  height: 440px;
 }
 .photo {
   object-fit: cover;
@@ -381,6 +383,18 @@ Menu
 .photo:hover {
   box-shadow: var(--dark-shadow);
 }
+
+.visible {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.item-info {
+  cursor: pointer;
+}
+
 .item-info header {
   display: flex;
   justify-content: space-between;
@@ -404,6 +418,30 @@ Menu
   margin-bottom: 0;
   padding-top: 0.5rem;
   padding-bottom: 0.4rem;
+}
+
+.isize {
+  border-radius: 20px;
+  border: 1px solid #c4c4c4;
+  font-size: 15px;
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 7px;
+  font-weight: bold;
+  font-family: var(--ff-primary);
+}
+
+.isize:hover {
+  border: 1px solid var(--clr-black);
+}
+
+.productSize {
+  font-size: 13px;
+  margin-bottom: 0;
+  padding-top: 0.3rem;
+  padding-bottom: 0.2rem;
 }
 
 @media screen and (min-width: 768px) {
