@@ -1095,22 +1095,43 @@ filterBtns.forEach(function(btn){
 
 function displayProductDetails(productDetails){ 
     let displayProucts = productDetails.map(function(item){
-        //console.log(item); 
+        //console.log(item); height:128px;
     return `<article class="menu-item">
     <table>                            
         </tbody>
-            <tr><td><div title=${item.name.slice(0,35)}>
+            <tr><td><div title="${item.name}">
                  <img src=${item.image_src} alt=${item.name} class="photo" />
             </div></td></tr>
             <tr><td>
-                <div class="item-info" title=${item.name.slice(0,35)}>
-                <h4 style="padding-top:10px;">${item.vendor}</h4>
-                <button id=${item.id} type="button" class="itemToCart" onClick="addItem(this.id)">Add to cart</button>
-                 <p id="pname_${item.id}" class="item-text">
-                 ${item.name.slice(0,35)}
+            <div id="pDetails_${item.id}" title="${item.name}" style="height:125px;margin-top:10px;" onmouseover="visibleDetails(${item.id})" onmouseout="hideDetails(${item.id})">
+
+            <div id="p1_${item.id}" style="display:block;" class="item-info">
+            <h4 style="padding-top:10px;padding-bottom: 10px;">${item.vendor}</h4>
+             <p id="pname_${item.id}" class="item-text">
+             ${item.name.slice(0,35)}
+            </p>
+         <h4 class="price">$${item.price} <span class="actualPrice"><s>$${item.compare_at_price}</s> <span class="discount">(50% OFF)</span></span></h4>
+         </div>
+
+                <div id="p2_${item.id}" style="display:none;" class="item-info">
+                <div class="isizes">
+                  <h4 style="font-size:0.9rem;">Select size</h4>
+                  <button id=${item.id} type="button" class="itemToCart" onClick="addItem(this.id)">Add to cart</button>
+                  <span>
+                  <span class="isize">38</span>
+                  <span class="isize">39</span>
+                  <span class="isize">40</span>
+                  <span class="isize">44</span>
+                  <span class="isize">46</span>
+                  <span>
+                </div>
+                <p id="pname_${item.id}" class="productSize">
+                 Size : XS, S, M, L, XL, XXL
                 </p>
              <h4 class="price">$${item.price} <span class="actualPrice"><s>$${item.compare_at_price}</s> <span class="discount">(50% OFF)</span></span></h4>
-             </div></td></tr>
+             </div>
+            </div> 
+             </td></tr>
         </tbody>
     </table>
   </article>`;
@@ -1130,4 +1151,20 @@ function addItem(id){
   //console.log(itemsAdded);
   document.getElementById("icount").innerHTML = itemsAdded.length;
   console.log("Added item with id : " + id + ", so total items added : " + itemsAdded.length);
+}
+
+function visibleDetails(id){
+  p1 = document.getElementById("p1_"+id);
+  p1.style.display = (p1.style.display = "block" ? "none" : "block");
+
+  p2 = document.getElementById("p2_"+id);
+  p2.style.display = (p2.style.display = "none" ? "block" : "none");
+}
+
+function hideDetails(id){
+  p2 = document.getElementById("p2_"+id);
+  p2.style.display = (p2.style.display = "block" ? "none" : "block");
+
+  p1 = document.getElementById("p1_"+id);
+  p1.style.display = (p1.style.display = "none" ? "block" : "none");
 }
